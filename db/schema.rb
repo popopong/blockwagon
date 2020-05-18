@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_202748) do
   end
 
   create_table "rental_requests", force: :cascade do |t|
-    t.string "status", default: "Open"
+    t.string "status", default: "Pending"
     t.string "message"
     t.date "start_date"
     t.date "end_date"
