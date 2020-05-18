@@ -15,8 +15,8 @@ class VideoCassettesController < ApplicationController
     @video_cassette = VideoCassettes.new(video_cassettes_params)
     if @video_cassette.save
       flash.notice = "VHS Added!"
+      redirect_to video_cassette_path(@video_cassette)
     else
-      flash.alert = "VHS not valid"
       render :new
     end
 
