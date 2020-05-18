@@ -1,0 +1,10 @@
+class User < ApplicationRecord
+  has_many :rental_requests
+  has_many :video_cassettes
+  has_many :wishlists
+  
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, format: { with: /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/, message: "Please enter a valid email address"}
+  validates :encrypted_password, presence: true
+end
