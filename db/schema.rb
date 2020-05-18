@@ -51,19 +51,19 @@ ActiveRecord::Schema.define(version: 2020_05_18_202748) do
     t.string "cover_photo"
     t.string "description"
     t.integer "price"
-    t.bigint "video_genre_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_video_cassettes_on_user_id"
-    t.index ["video_genre_id"], name: "index_video_cassettes_on_video_genre_id"
   end
 
   create_table "video_genres", force: :cascade do |t|
     t.bigint "genre_id", null: false
+    t.bigint "video_cassette_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["genre_id"], name: "index_video_genres_on_genre_id"
+    t.index ["video_cassette_id"], name: "index_video_genres_on_video_cassette_id"
   end
 
   create_table "wishlists", force: :cascade do |t|
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_202748) do
   add_foreign_key "rental_requests", "users"
   add_foreign_key "rental_requests", "video_cassettes"
   add_foreign_key "video_cassettes", "users"
-  add_foreign_key "video_cassettes", "video_genres"
   add_foreign_key "video_genres", "genres"
+  add_foreign_key "video_genres", "video_cassettes"
   add_foreign_key "wishlists", "users"
   add_foreign_key "wishlists", "video_cassettes"
 end

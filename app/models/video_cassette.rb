@@ -1,8 +1,9 @@
 class VideoCassette < ApplicationRecord
-  belongs_to :video_genre
   belongs_to :user
   has_many :wishlists
   has_many :rental_requests
+  has_many :video_genres
+  has_many :genres, through: :video_genres
 
   validates :title, presence: true
   validates :year, presence: true
