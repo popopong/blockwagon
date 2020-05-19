@@ -1,15 +1,39 @@
 <!-- Cover photo -->
-<%= image_tag @video_cassette.cover_photo%>
-<h2><%= @video_cassette.title %></h2>
-<p><%= @video_cassette.year %></p>
 
-<!-- Owner photo -->
-<span><%= @video_cassette.user.first_name %></span>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <%= image_tag @video_cassette.cover_photo, class: "w-100 mb-4" %>
+      <div class="d-flex">
+        <div class="flex-column mr-3">
+          <h4><%= @video_cassette.title %></h4>
+          <p><%= @video_cassette.year %></p>
+        </div>
+        <div class="flex-column">
+          <%= image_tag @video_cassette.user.avatar, class: "avatar" %>
+          <p><%= @video_cassette.user.first_name %></p>
+        </div>
+      </div>
+    </div>
 
-<%= simple_form_for @rental_request do |f| %>
-  <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
-  <%= f.input :end_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
-  <%= f.hidden_field :video_cassette_id, value: @video_cassette.id %>
-  <!-- After finishing the login function and page -->
-  <!--remember to add another hidden field with :user_id, value: current_user.id -->
-<% end %>
+    <div class="col-6 align-self-center">
+
+      <p><%= @video_cassette.description %></p>
+      <%= simple_form_for @rental_request do |f| %>
+        <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
+        <%= f.input :end_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
+        <%= f.input :message, as: :text %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.hidden_field :video_cassette_id, value: @video_cassette.id %>
+        <!-- After finishing the login function and page -->
+        <!--remember to add another hidden field with :user_id, value: current_user.id -->
+      <% end %>
+      <a href="#" id="star" class="btn btn-outline-warning mt-3"><i class="far fa-star"></i> Add to wish list</a>
+      <i class="fas fa-star"></i>
+      
+    </div>
+  </div>
+
+
+
+</div>
