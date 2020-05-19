@@ -38,6 +38,6 @@ class RentalRequestsController < ApplicationController
   private
 
   def rental_request_params
-    params.require(:rental_request).permit(:message, :start_date, :end_date)
+    params.require(:rental_request).permit(:message, :start_date, :end_date, :video_casette_id, :user_id)
   end
 end

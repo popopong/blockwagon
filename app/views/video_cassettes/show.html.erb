@@ -1,8 +1,15 @@
 <!-- Cover photo -->
-<%= cl_image_tag @video_cassette.cover_photo.key, width: 400, height: 300, crop: :fill %>
+<%= image_tag @video_cassette.cover_photo%>
 <h2><%= @video_cassette.title %></h2>
 <p><%= @video_cassette.year %></p>
 
 <!-- Owner photo -->
-<%= cl_image_tag @video_cassette.user.avatar.key, width: 400, height: 300, crop: :fill %>
 <span><%= @video_cassette.user.first_name %></span>
+
+<%= simple_form_for @rental_request do |f| %>
+  <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
+  <%= f.input :end_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
+  <%= f.hidden_field :video_cassette_id, value: @video_cassette.id %>
+<% end %>
+
+
