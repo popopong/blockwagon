@@ -5,6 +5,7 @@ class VideoCassettesController < ApplicationController
 
   def show
     @video_cassette = VideoCassette.find(params[:id])
+    @rental_request = RentalRequest.new
   end
 
   def new
