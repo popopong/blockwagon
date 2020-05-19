@@ -1,0 +1,8 @@
+<!-- Cover photo -->
+<%= cl_image_tag @video_cassette.cover_photo.key, width: 400, height: 300, crop: :fill %>
+<h2><%= @video_cassette.title %></h2>
+<p><%= @video_cassette.year %></p>
+
+<!-- Owner photo -->
+<%= cl_image_tag @video_cassette.user.avatar.key, width: 400, height: 300, crop: :fill %>
+<span><%= @video_cassette.user.first_name %></span>
