@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">BockWagon</a>
+  <a class="navbar-brand" href="/">BlockWagon</a>
     <img src="https://unsplash.com/photos/iFgRcqHznqg" />
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,12 +12,18 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Listings</a>
       </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Hello, <%= current_user.first_name %></a>
+      </li>
+
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <p><%= link_to "Incoming rentals", rental_requests_path %></p>
-          <p><%= link_to "My request / Whislits", rental_request_path %></p>
-          <p><%= link_to "Sing out", destroy_user_sesssion_path %></p>
+          <p><%= link_to "My request / Wishlist", rental_request_path %></p>
+          <p><%= link_to "Sign out", destroy_user_sesssion_path %></p>
         </div>
       </li>
     </ul>
