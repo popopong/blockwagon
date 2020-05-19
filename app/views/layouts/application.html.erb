@@ -13,6 +13,20 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <%= render 'shared/navbar_singin_singup' %>
+
+      <%= yield %>
+
+    <footer>
+      <div class="footer">
+        <div>
+          <p>© 2020 BlockWagon</p>
+        </div>
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-facebook-square"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
