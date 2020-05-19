@@ -10,6 +10,6 @@
   <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
   <%= f.input :end_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
   <%= f.hidden_field :video_cassette_id, value: @video_cassette.id %>
+  <!-- After finishing the login function and page -->
+  <!--remember to add another hidden field with :user_id, value: current_user.id -->
 <% end %>
-
-
