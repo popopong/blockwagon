@@ -1,17 +1,16 @@
-.card-small {
-  position: absolute;
-}
-
 .card-small img {
   border-radius: 4px;
   width: 200px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .card-small-info {
-  opacity: 1;
   background-color: white;
   width: 200px;
   border-radius: 0 0 4px 4px;
+  padding-bottom: 32px;
+  position: relative;
   & p {
     display: inline-block;
     vertical-align: top;
@@ -20,4 +19,22 @@
   & p:nth-child(3) {
     padding-left: 16px;
   }
+  & img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 70px;
+    left: 152px;
+  }
+}
+
+.card-small-info {
+  position: relative;
+}
+
+.container li {
+  list-style: none;
+  display: inline-block;
 }
