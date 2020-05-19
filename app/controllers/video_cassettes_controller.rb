@@ -1,18 +1,18 @@
 class VideoCassettesController < ApplicationController
   def index
-    @video_cassettes = VideoCassettes.all
+    @video_cassettes = VideoCassette.all
   end
 
   def show
-    @video_cassette = VideoCassettes.find(params[:id])
+    @video_cassette = VideoCassette.find(params[:id])
   end
 
   def new
-    @video_cassette = VideoCassettes.new
+    @video_cassette = VideoCassette.new
   end
 
   def create
-    @video_cassette = VideoCassettes.new(video_cassettes_params)
+    @video_cassette = VideoCassette.new(video_cassettes_params)
     if @video_cassette.save
       flash.notice = "VHS Added!"
       redirect_to video_cassette_path(@video_cassette)
@@ -23,7 +23,7 @@ class VideoCassettesController < ApplicationController
   end
 
   def destroy
-    @video_cassette = VideoCassettes.find(params[:id])
+    @video_cassette = VideoCassette.find(params[:id])
     @video_cassette.destroy
   end
 

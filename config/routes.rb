@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'pages#home'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'video_cassettes#index'
+    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # get '/', to: 'video_cassettes#index' # I can browse all available VHS, I can sort the VHS by genre
   # get '/video_cassette/:id', to: 'video_cassettes#show' # I can check the details of a certain VHS
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :rental_requests, only: [:index, :create, :edit, :update]
   get 'user/:id/accepted', to: 'rental_request#accepted_rentals'
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:show]
 
   resources :video_cassettes, only: [:index, :show, :new, :create, :destroy]
 
