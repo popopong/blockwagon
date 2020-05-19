@@ -1,0 +1,26 @@
+
+<h1>For all the nostalgics</h1>
+<%= render 'shared/carousel' %>
+
+<div class="container my-5" id="homepage-card">
+  <div class="card-small">
+    <img src="https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_UY1200_CR83,0,630,1200_AL_.jpg" alt="VHS cover">
+  
+    <div class="card-small-info">
+      <h5><strong>Casablanca</strong></h5>
+      <p>1942</p> <p>3.99$</p>
+    </div>
+    <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+  </div>
+</div>
+
+<%= @video_cassettes.each do |video_cassette| %>
+  <div class="card-small">
+    <img src="<%= video_casette.cover_photo %>">
+  </div>
+
+  <div class="card-small-info" id="homepage-card">
+    <h5><strong><%= link_to video_cassette.title, video_cassette_path %></h5>
+    <p><%= video_cassette.year %></p><p><%= video_cassette.price %></p>
+  </div>
+<% end %>
