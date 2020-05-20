@@ -13,7 +13,12 @@
 
   <body>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/navbar_singin_singup' %>
+
+    <% if user_signed_in? %>
+      <%= render 'shared/navbar_user' %>
+    <% else %>
+      <%= render 'shared/navbar_signin_signup' %>
+    <% end %>
 
       <%= yield %>
 
