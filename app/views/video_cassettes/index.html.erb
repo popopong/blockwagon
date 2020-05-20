@@ -1,124 +1,45 @@
 <%= render 'shared/carousel' %>
 
 <%# Latest videocassettes %>
-<div class="container my-5">
-  <h4><strong>Latest videocassettes added 😁</strong></h4>
-</div>
-
-<div class="d-flex" style="width:100%; overflow:auto">
-      <% @video_cassettes.last(10).each do |video_cassette| %>
-          <div class="card-small mx-2 homepage-card">
-            <a href=<%= video_cassette_path(video_cassette) %>>
-              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
-            </a>
-
-            <div class="card-small-info">
-              <h5><strong><%= link_to video_cassette.title, video_cassette_path(video_cassette)%></strong></h5>
-              <p><%= video_cassette.year %></p> <p><%= video_cassette.price %>.00$</p>
-              <img src="<%=video_cassette.user.avatar%>" alt="User profile pic">
-            </div>
-
-          </div>
-
-      <% end %>
-</div>
+  <div class="container my-5">
+    <h4><strong>Latest videocassettes added 😁</strong></h4>
+  </div>
+  <div class="d-flex" style="width:100%; overflow:auto">
+    <%= render 'shared/vhs_scroll' %>
+  </div>
 
 <%# Popular section %>
-<div class="container my-5">
-  <h4><strong>Most popular videocassette rentals ⭐</strong></h4>
-</div>
-
-<%# Do a .where(rental_requests are the highest) and assign it to a variable %>
-
-<div class="d-flex" style="width:100%; overflow:auto">
-      <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2 homepage-card">
-            <a href=<%= video_cassette_path(video_cassette) %>>
-              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
-            </a>
-
-            <div class="card-small-info">
-              <h5><strong><%= link_to video_cassette.title, video_cassette_path(video_cassette)%></strong></h5>
-              <p><%= video_cassette.year %></p> <p><%= video_cassette.price %>.00$</p>
-              <img src="<%=video_cassette.user.avatar%>" alt="User profile pic">
-            </div>
-
-          </div>
-
-      <% end %>
-</div>
+  <div class="container my-5">
+    <h4><strong>Most popular videocassette rentals ⭐</strong></h4>
+  </div>
+  <%# Do a .where(rental_requests are the highest) and assign it to a variable %>
+  <div class="d-flex" style="width:100%; overflow:auto">
+    <%= render 'shared/vhs_scroll' %>
+  </div>
 
 <%# Action section %>
-<div class="container my-5">
-  <h4><strong>Want some action? 🏃</strong></h4>
-</div>
-
-<%# Do a .where(genre: action) and assign it to a variable %>
-
-<div class="d-flex" style="width:100%; overflow:auto">
-      <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2 homepage-card">
-            <a href=<%= video_cassette_path(video_cassette) %>>
-              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
-            </a>
-
-            <div class="card-small-info">
-              <h5><strong><%= link_to video_cassette.title, video_cassette_path(video_cassette)%></strong></h5>
-              <p><%= video_cassette.year %></p> <p><%= video_cassette.price %>.00$</p>
-              <img src="<%=video_cassette.user.avatar%>" alt="User profile pic">
-            </div>
-
-          </div>
-
-      <% end %>
-</div>
+  <div class="container my-5">
+    <h4><strong>Want some action? 🏃</strong></h4>
+  </div>
+  <%# Do a .where(genre: action) and assign it to a variable %>
+  <div class="d-flex" style="width:100%; overflow:auto">
+    <%= render 'shared/vhs_scroll' %>
+  </div>
 
 <%# Comedy section %>
-<div class="container my-5">
-  <h4><strong>Looking for a good laugh? 😂</strong></h4>
-</div>
-
-<%# Do a .where(genre: comedy) and assign it to a variable %>
-
-<div class="d-flex" style="width:100%; overflow:auto">
-      <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2 homepage-card">
-            <a href=<%= video_cassette_path(video_cassette) %>>
-              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
-            </a>
-
-            <div class="card-small-info">
-              <h5><strong><%= link_to video_cassette.title, video_cassette_path(video_cassette)%></strong></h5>
-              <p><%= video_cassette.year %></p> <p><%= video_cassette.price %>.00$</p>
-              <img src="<%=video_cassette.user.avatar%>" alt="User profile pic">
-            </div>
-
-          </div>
-
-      <% end %>
-</div>
+  <div class="container my-5">
+    <h4><strong>Looking for a good laugh? 😂</strong></h4>
+  </div>
+  <%# Do a .where(genre: comedy) and assign it to a variable %>
+  <div class="d-flex" style="width:100%; overflow:auto">
+    <%= render 'shared/vhs_scroll' %>
+  </div>
 
 <%# Romance section %>
-<div class="container my-5">
-  <h4><strong>Love is in the air ❤️</strong></h4>
-</div>
-
-<%# Do a .where(genre: romance) and assign it to a variable %>
-
-<div class="d-flex mb-5" style="width:100%; overflow:auto">
-      <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2 homepage-card">
-            <a href=<%= video_cassette_path(video_cassette) %>>
-              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
-            </a>
-
-            <div class="card-small-info">
-              <h5><strong><%= link_to video_cassette.title, video_cassette_path(video_cassette)%></strong></h5>
-              <p><%= video_cassette.year %></p> <p><%= video_cassette.price %>.00$</p>
-              <img src="<%=video_cassette.user.avatar%>" alt="User profile pic">
-            </div>
-
-          </div>
-
-      <% end %>
-</div>
+  <div class="container my-5">
+    <h4><strong>Love is in the air ❤️</strong></h4>
+  </div>
+  <%# Do a .where(genre: romance) and assign it to a variable %>
+  <div class="d-flex mb-5" style="width:100%; overflow:auto">
+    <%= render 'shared/vhs_scroll' %>
+  </div>
