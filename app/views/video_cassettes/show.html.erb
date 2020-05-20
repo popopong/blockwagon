@@ -21,6 +21,16 @@
     </div>
 
     <div class="col-6 align-self-center">
+      <% if @user_wishlist %>
+        <%= link_to wishlist_path(@user_wishlist), method: 'delete' do%>
+          <i class="fas fa-star" class="pb-3" style="color: #f7de25; font-size: 2rem;"></i>
+        <% end %>
+      <% else %>
+        <%= link_to video_cassette_wishlists_path(@video_cassette), method: 'post' do%>
+          <i class="far fa-star" class="mb-3" style="color: #f7de25; font-size: 2rem;"></i>
+        <% end %>
+      <% end %>
+      
 
       <p><%= @video_cassette.description %></p>
       <%= simple_form_for @rental_request do |f| %>
@@ -33,16 +43,6 @@
         <!--remember to add another hidden field with :user_id, value: current_user.id -->
       <% end %>
 
-      <% if @user_wishlist %>
-        <%= link_to wishlist_path(@user_wishlist), method: 'delete', class: "btn btn-outline-warning mt-3" do%>
-          <i class="far fa-star"></i> Remove from wish list
-        <% end %>
-      <% else %>
-        <%= link_to video_cassette_wishlists_path(@video_cassette), method: 'post', class: "btn btn-outline-warning mt-3" do%>
-          <i class="fas fa-star"></i> Add to wish list
-        <% end %>
-      <% end %>
-      
     </div>
   </div>
 
