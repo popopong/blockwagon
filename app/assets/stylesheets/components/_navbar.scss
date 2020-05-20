@@ -16,8 +16,12 @@ a:hover {
   color:black;
 }
 
-.navbar{
+.navbar {
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.nav-link {
+  margin-bottom: 0;
 }
