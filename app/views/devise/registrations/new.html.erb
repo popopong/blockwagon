@@ -1,13 +1,13 @@
-<h2>Hey friend! Ready to go back in time with us?</h2>
+<%= render 'shared/carousel' %>
+
 
 <div class="form-container">
+  <h2>Hey friend! Ready to go back in time with us?</h2>
+
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
     <div class="form-inputs">
       <div class="row">
-        <div class="col-sm movie-background">
-
-        </div>
         <div class="col-sm">
           <%= f.input :first_name,
                       placeholder: "First Name",
