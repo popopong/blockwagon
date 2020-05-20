@@ -7,9 +7,9 @@
 
 <div class="d-flex" style="width:100%; overflow:auto">
       <% @video_cassettes.last(10).each do |video_cassette| %>
-          <div class="card-small mx-2" id="homepage-card">
+          <div class="card-small mx-2 homepage-card">
             <a href=<%= video_cassette_path(video_cassette) %>>
-              <img src="<%=video_cassette.cover_photo%>" alt="VHS cover">
+              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
             </a>
 
             <div class="card-small-info">
@@ -32,9 +32,9 @@
 
 <div class="d-flex" style="width:100%; overflow:auto">
       <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2" id="homepage-card">
+          <div class="card-small mx-2 homepage-card">
             <a href=<%= video_cassette_path(video_cassette) %>>
-              <img src="<%=video_cassette.cover_photo%>" alt="VHS cover">
+              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
             </a>
 
             <div class="card-small-info">
@@ -57,9 +57,9 @@
 
 <div class="d-flex" style="width:100%; overflow:auto">
       <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2" id="homepage-card">
+          <div class="card-small mx-2 homepage-card">
             <a href=<%= video_cassette_path(video_cassette) %>>
-              <img src="<%=video_cassette.cover_photo%>" alt="VHS cover">
+              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
             </a>
 
             <div class="card-small-info">
@@ -82,9 +82,9 @@
 
 <div class="d-flex" style="width:100%; overflow:auto">
       <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2" id="homepage-card">
+          <div class="card-small mx-2 homepage-card">
             <a href=<%= video_cassette_path(video_cassette) %>>
-              <img src="<%=video_cassette.cover_photo%>" alt="VHS cover">
+              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
             </a>
 
             <div class="card-small-info">
@@ -107,9 +107,9 @@
 
 <div class="d-flex mb-5" style="width:100%; overflow:auto">
       <% @video_cassettes.each do |video_cassette| %>
-          <div class="card-small mx-2" id="homepage-card">
+          <div class="card-small mx-2 homepage-card">
             <a href=<%= video_cassette_path(video_cassette) %>>
-              <img src="<%=video_cassette.cover_photo%>" alt="VHS cover">
+              <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
             </a>
 
             <div class="card-small-info">

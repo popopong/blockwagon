@@ -1,19 +1,18 @@
-.card-small img {
+.cover-img {
   border-radius: 4px;
   width: 200px;
   height: 300px;
   object-fit: cover;
+}
+
+.homepage-card {
   &:hover {
-    width: 250px;
-    height: 350px;
+    transform: scale(1.5);
   }
 }
 
-// .card-small-info {
-//   opacity: 0;
-// }
-
 .card-small-info {
+  // display: none;
   background-color: white;
   width: 200px;
   border-radius: 0 0 4px 4px;
@@ -35,7 +34,7 @@
   }
 }
 
-// .card-small-info-active {
+// .card-small-info {
 //   background-color: white;
 //   width: 200px;
 //   border-radius: 0 0 4px 4px;
@@ -56,6 +55,28 @@
 //     left: 152px;
 //   }
 // }
+
+.card-small-info-active {
+  background-color: white;
+  width: 200px;
+  border-radius: 0 0 4px 4px;
+  height: 100px;
+  position: relative;
+  & p {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+  }
+  & img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 70px;
+    left: 152px;
+  }
+}
 
 .card-small-info {
   position: relative;

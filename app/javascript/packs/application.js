@@ -24,14 +24,14 @@ require("channels")
 
 // External imports
 import "bootstrap";
-// import { clickWishlistStar } from "../components/wishlist"
+import { clickWishlistStar } from "../components/wishlist"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { cardHover } from '../components/card_hover'
+// import { cardHover } from '../components/card_hover'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  cardHover();
-  // clickWishlistStar();
+  // cardHover();
+  clickWishlistStar();
 });
