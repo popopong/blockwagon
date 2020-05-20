@@ -12,6 +12,8 @@ require 'json'
 puts "Cleaning database..."
 VideoCassette.destroy_all
 User.destroy_all
+RentalRequest.destroy_all
+Wishlist.destroy_all
 
 # First user
 user1 = User.create(first_name: "Poyan", last_name: "Ng", email: "popo@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/58827819?v=4")
