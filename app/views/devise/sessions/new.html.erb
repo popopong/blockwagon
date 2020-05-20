@@ -1,6 +1,10 @@
-<h2>Hey friend, welcome back! Sign in to unleash the retro magic!</h2>
+<%= render 'shared/carousel' %>
+
 
 <div class="form-container">
+
+  <h2>Hey friend, welcome back! Sign in to unleash the retro magic!</h2>
+
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-inputs">
       <%= f.input :email,
