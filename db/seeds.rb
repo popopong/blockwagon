@@ -33,4 +33,9 @@ open_url = open('http://www.omdbapi.com/?i=tt0110912&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
 video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR1,0,182,268_AL_.jpg", user_id: user4.id)
 
-puts "4 movies and users created"
+user4 = User.create(first_name: "Ben", last_name: "Smith", email: "smith@hello.com", password: "123456")
+open_url = open('http://www.omdbapi.com/?i=tt6751668&apikey=bea36d3e').read
+movie = JSON.parse(open_url)
+video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user4.id)
+
+puts "5 movies and users created"
