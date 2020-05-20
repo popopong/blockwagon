@@ -22,8 +22,14 @@ Rails.application.routes.draw do
   # post '/wishlists', to: 'wishlist#create' #I can make a list of movies that I’d like to rent (extra)
   # get '/wishlists', to: 'wishlist#index' # I can view my wishlist of movies (extra)
 
+
   resources :rental_requests, only: [:index, :create, :edit, :update]
+  
+  get '/rental_requests/incoming', to: 'rental_requests#index'
+  get '/rental_requests/outgoing', to: 'rental_requests#index'
+
   get 'user/:id/accepted', to: 'rental_request#accepted_rentals'
+
 
   resources :users, only: [:show]
 
