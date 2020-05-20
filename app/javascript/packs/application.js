@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { clickWishlistStar } from "../components/wishlist"
+import { navbarTransparent } from "../components/navbar"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 // import { cardHover } from '../components/card_hover'
@@ -33,5 +33,5 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // cardHover();
-  clickWishlistStar();
+  navbarTransparent();
 });

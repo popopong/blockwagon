@@ -16,7 +16,8 @@ a:hover {
   color:black;
 }
 
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
