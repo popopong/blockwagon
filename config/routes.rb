@@ -27,8 +27,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :video_cassettes, only: [:index, :show, :new, :create, :destroy]
+  resources :video_cassettes, only: [:index, :show, :new, :create, :destroy] do
+    resources :wishlists, only: [:create]
+  end
+  
+  resources :wishlists, only: [:index, :destroy]
 
-  resources :wishlists, only: [:index, :create, :destroy]
 
 end

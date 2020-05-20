@@ -6,6 +6,7 @@ class VideoCassettesController < ApplicationController
   def show
     @video_cassette = VideoCassette.find(params[:id])
     @rental_request = RentalRequest.new
+    @user_wishlist = @video_cassette.wishlists.find_by(user: current_user)
   end
 
   def new

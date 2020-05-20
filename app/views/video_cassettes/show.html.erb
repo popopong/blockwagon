@@ -32,8 +32,16 @@
         <!-- After finishing the login function and page -->
         <!--remember to add another hidden field with :user_id, value: current_user.id -->
       <% end %>
-      <a href="#" id="star" class="btn btn-outline-warning mt-3"><i class="far fa-star"></i> Add to wish list</a>
-      <i class="fas fa-star"></i>
+
+      <% if @user_wishlist %>
+        <%= link_to wishlist_path(@user_wishlist), method: 'delete', class: "btn btn-outline-warning mt-3" do%>
+          <i class="far fa-star"></i> Remove from wish list
+        <% end %>
+      <% else %>
+        <%= link_to video_cassette_wishlists_path(@video_cassette), method: 'post', class: "btn btn-outline-warning mt-3" do%>
+          <i class="fas fa-star"></i> Add to wish list
+        <% end %>
+      <% end %>
       
     </div>
   </div>
