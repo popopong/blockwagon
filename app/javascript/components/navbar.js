@@ -1,0 +1,4 @@
+const navbarTransparent = () => {
+}
+
+export { navbarTransparent }
