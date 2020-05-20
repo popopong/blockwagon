@@ -32,7 +32,7 @@ class RentalRequestsController < ApplicationController
   def update
     @rental_request = RentalRequest.find(params[:id])
     @video_cassette = RentalRequest.video_cassette
-    @rental_request = RentalRequest.update(status: )
+    @rental_request = RentalRequest.update(status: "")
   end
 
   private
