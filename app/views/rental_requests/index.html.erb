@@ -1,0 +1,5 @@
+<ul>
+  <% @rental_requests.each do |request| %>
+  <li><%= request.video_cassette.title %></li>
+  <% end %>
+</ul>
