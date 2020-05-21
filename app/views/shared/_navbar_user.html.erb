@@ -20,8 +20,9 @@
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src= <%= current_user.avatar %> />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <p><%= link_to "Incoming rentals", rental_requests_path %></p>
-          <p><%= link_to "My request / Wishlist", rental_request_path(:id) %></p>
+          <p><%= link_to "My Profile", user_path(current_user) %></p>
+          <p><%= link_to "Wishlist", wishlists_path %></p>
+          <p><%= link_to "My Requests", rental_requests_path %></p>
           <p><%= link_to "Sign out", destroy_user_session_path, method: :delete %></p>
           <!-- because link_to is a get verb we need to change the verd to delete -->
         </div>
