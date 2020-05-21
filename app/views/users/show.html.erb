@@ -1,1 +1,22 @@
-<h2>My Profile</h2>
+<div class="container">
+  <h1>My Profile</h1>
+
+  <%= image_tag(@user.avatar, class: 'avatar big') %>
+
+  <%= link_to  edit_user_path(current_user) do %>
+    <i class="fas fa-pencil-alt"></i>
+  <% end %>
+
+  <h2><%= @user.first_name %> <%= @user.last_name %> </h2>
+
+  <p><%= @user.email %></p>
+
+  <p><%= @user.about %></p>
+
+  <%= link_to "My Wishlist", wishlists_path %>
+  <%= link_to "My Rentals", rental_requests_path %>
+</div>
+
+
+
+
