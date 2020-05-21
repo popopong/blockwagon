@@ -56,9 +56,20 @@ class VideoCassettesController < ApplicationController
 
     authorize @video_cassette
 
-    @video_cassette.destroy
+    rental_request = RentalRequest.where(video_cassette_id: @video_cassette.id)
+    if rental_request.exists?
+      flash.alert = "Rental requests exist! Cannot be deleted!"
+      redirect_to video_cassette_path(@video_cassette)
+    else
+      wishlists = Wishlist.where(video_cassette_id: @video_cassette.id)
+      wishlists.each do |wish|
+        wish.destroy
+      end
+      @video_cassette.destroy
+      flash.notice = "Your listing has been deleted!"
+      redirect_to video_cassettes_path
+    end
 
-    redirect_to video_cassettes_path
   end
 
   private
