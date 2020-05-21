@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :video_cassettes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :wishlists, only: [:create]
   end
-  
+
   resources :wishlists, only: [:index, :destroy]
 
 
