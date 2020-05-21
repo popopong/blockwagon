@@ -24,10 +24,6 @@ Rails.application.routes.draw do
 
 
   resources :rental_requests, only: [:index, :create, :edit, :update]
-  
-  get '/rental_requests/incoming', to: 'rental_requests#index'
-  get '/rental_requests/outgoing', to: 'rental_requests#index'
-
   get 'user/:id/accepted', to: 'rental_request#accepted_rentals'
 
 
