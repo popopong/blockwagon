@@ -10,64 +10,95 @@ require 'open-uri'
 require 'json'
 
 puts "Cleaning database..."
+RentalRequest.destroy_all
+Wishlist.destroy_all
 VideoCassette.destroy_all
 User.destroy_all
 
 # First user
-user1 = User.create(first_name: "Poyan", last_name: "Ng", email: "popo@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/58827819?v=4")
+user1 = User.create(first_name: "Poyan", last_name: "Ng", email: "poyan@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/58827819?v=4")
 open_url = open('http://www.omdbapi.com/?i=tt0111161&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user1.id)
+video1 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user1.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0117008&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BZTA4MmI5YzgtOTU1Yy00NGVjLTgyMGQtNjNlMDY2YWVlZmYyL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user1.id)
+video2 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BZTA4MmI5YzgtOTU1Yy00NGVjLTgyMGQtNjNlMDY2YWVlZmYyL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user1.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0113497&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BZTk2ZmUwYmEtNTcwZS00YmMyLWFkYjMtNTRmZDA3YWExMjc2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY268_CR10,0,182,268_AL_.jpg", user_id: user1.id)
+video3 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BZTk2ZmUwYmEtNTcwZS00YmMyLWFkYjMtNTRmZDA3YWExMjc2XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY268_CR10,0,182,268_AL_.jpg", user_id: user1.id)
 
 # Second user
-user2 = User.create(first_name: "Stephanie", last_name: "BD", email: "kekeke@hello.com", password: "123456", avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1589505233/wfl1xmyhs1yvpueklz1r.jpg")
+user2 = User.create(first_name: "Stephanie", last_name: "BD", email: "stepbd@hello.com", password: "123456", avatar: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1589505233/wfl1xmyhs1yvpueklz1r.jpg")
 open_url = open('http://www.omdbapi.com/?i=tt0068646&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg", user_id: user2.id)
+video4 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR3,0,182,268_AL_.jpg", user_id: user2.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0083866&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMTQ2ODFlMDAtNzdhOC00ZDYzLWE3YTMtNDU4ZGFmZmJmYTczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user2.id)
+video5 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMTQ2ODFlMDAtNzdhOC00ZDYzLWE3YTMtNDU4ZGFmZmJmYTczXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user2.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0107614&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMjExMDUzODE1N15BMl5BanBnXkFtZTgwNTU5NTYxMTE@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user2.id)
+video6 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMjExMDUzODE1N15BMl5BanBnXkFtZTgwNTU5NTYxMTE@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user2.id)
 
 # Third user
-user3 = User.create(first_name: "Elie", last_name: "Hymowitz", email: "lollll@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/1916741?v=4")
+user3 = User.create(first_name: "Elie", last_name: "Hymowitz", email: "elie@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/1916741?v=4")
 open_url = open('http://www.omdbapi.com/?i=tt0468569&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user3.id)
+video7 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user3.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0097523&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BOTQ1NTg4MDAtOGU0OS00ZGQwLTliZjQtNDEzZjAzZGI5MjFjXkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user3.id)
+video8 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BOTQ1NTg4MDAtOGU0OS00ZGQwLTliZjQtNDEzZjAzZGI5MjFjXkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user3.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0349205&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMTg0NzYxMjY0Ml5BMl5BanBnXkFtZTcwOTU0NDczMw@@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user3.id)
+video9 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMTg0NzYxMjY0Ml5BMl5BanBnXkFtZTcwOTU0NDczMw@@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user3.id)
 
 # Fourth user
-user4 = User.create(first_name: "Stephanie", last_name: "Diep", email: "fafafa@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/61625854?v=4")
+user4 = User.create(first_name: "Stephanie", last_name: "Diep", email: "stepd@hello.com", password: "123456", avatar: "https://avatars1.githubusercontent.com/u/61625854?v=4")
 open_url = open('http://www.omdbapi.com/?i=tt0110912&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR1,0,182,268_AL_.jpg", user_id: user4.id)
+video10 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY268_CR1,0,182,268_AL_.jpg", user_id: user4.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0137523&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 5, cover_photo: "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user4.id)
+video11 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 5, cover_photo: "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user4.id)
 
 open_url = open('http://www.omdbapi.com/?i=tt0099785&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
-video = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user4.id)
+video12 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user4.id)
 
-puts "12 movies and 4 users created"
+
+RentalRequest.create!(message: "Hi im testing request 1", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video1.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 2", start_date: "2020-05-21", end_date: "2020-05-24", video_cassette_id: video2.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 3", start_date: "2020-05-21", end_date: "2020-05-27", video_cassette_id: video3.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 4", start_date: "2020-05-21", end_date: "2020-05-28", video_cassette_id: video4.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 5", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video5.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 6", start_date: "2020-05-21", end_date: "2020-05-24", video_cassette_id: video6.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 7", start_date: "2020-05-21", end_date: "2020-05-27", video_cassette_id: video7.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 8", start_date: "2020-05-21", end_date: "2020-05-28", video_cassette_id: video8.id, user_id: user4.id)
+RentalRequest.create!(message: "Hi im testing request 9", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video9.id, user_id: user4.id)
+
+RentalRequest.create!(message: "Hi im testing request 10", start_date: "2020-05-21", end_date: "2020-05-24", video_cassette_id: video10.id, user_id: user1.id)
+RentalRequest.create!(message: "Hi im testing request 11", start_date: "2020-05-21", end_date: "2020-05-27", video_cassette_id: video11.id, user_id: user1.id)
+RentalRequest.create!(message: "Hi im testing request 12", start_date: "2020-05-21", end_date: "2020-05-28", video_cassette_id: video12.id, user_id: user1.id)
+
+Wishlist.create!(user_id: user4.id, video_cassette_id: video1.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video2.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video3.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video4.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video5.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video6.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video7.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video8.id)
+Wishlist.create!(user_id: user4.id, video_cassette_id: video9.id)
+
+Wishlist.create!(user_id: user1.id, video_cassette_id: video10.id)
+Wishlist.create!(user_id: user1.id, video_cassette_id: video11.id)
+Wishlist.create!(user_id: user1.id, video_cassette_id: video12.id)
+
+puts "12 movies, 4 users, 12 rental requests, 12 wishlists created - use stepd@hello.come or poyan@hello.com to test rentalrequest and wishlist pages!"
 
