@@ -11,7 +11,7 @@ class WishlistsController < ApplicationController
     @wishlist.user = current_user
     @wishlist.video_cassette_id = params[:video_cassette_id]
 
-    authorize @wishlist
+    skip_authorization
 
     @wishlist.save
     redirect_to video_cassette_path(params[:video_cassette_id])

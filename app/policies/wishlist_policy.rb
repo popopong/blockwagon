@@ -1,6 +1,6 @@
 class WishlistPolicy < ApplicationPolicy
   def create
-    user_is_owner?
+    true
   end
 
   def destroy?
