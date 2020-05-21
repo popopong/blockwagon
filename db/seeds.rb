@@ -73,7 +73,6 @@ open_url = open('http://www.omdbapi.com/?i=tt0099785&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
 video12 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: "https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg", user_id: user4.id)
 
-
 RentalRequest.create!(message: "Hi im testing request 1", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video1.id, user_id: user4.id)
 RentalRequest.create!(message: "Hi im testing request 2", start_date: "2020-05-21", end_date: "2020-05-24", video_cassette_id: video2.id, user_id: user4.id)
 RentalRequest.create!(message: "Hi im testing request 3", start_date: "2020-05-21", end_date: "2020-05-27", video_cassette_id: video3.id, user_id: user4.id)
