@@ -1,11 +1,7 @@
 class WishlistPolicy < ApplicationPolicy
-  def index?
-    Wishlist.user == user
-  end
-
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: user)
     end
   end
 end
