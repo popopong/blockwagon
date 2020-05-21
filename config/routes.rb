@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   resources :rental_requests, only: [:index, :create, :edit, :update]
   get 'user/:id/accepted', to: 'rental_request#accepted_rentals'
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update]
 
-  resources :video_cassettes, only: [:index, :show, :new, :create, :destroy] do
+  resources :video_cassettes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :wishlists, only: [:create]
   end
   
