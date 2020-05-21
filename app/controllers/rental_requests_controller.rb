@@ -2,12 +2,19 @@ class RentalRequestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @outgoing_rental_requests = RentalRequest.where(user: current_user)
-    rental_requests = RentalRequest.all
+    # How to do policy_scope on @outgoing_rental_requests?
+    rental_requests = policy_scope(RentalRequest)
+
+    @outgoing_rental_requests = rental_requests.where(user: current_user)
+
     @incoming_rental_requests = rental_requests.select do |request|
       request.video_cassette.user == current_user && request.status == "Pending"
     end
   end
+
+  # def incoming_rental_requests
+  #   @incoming_rental_requests = rental_requests.where(video_cassettes: { user: User.first })
+  # end
 
   # Form to create new request will be embedded on Videos Show
 
@@ -15,6 +22,9 @@ class RentalRequestsController < ApplicationController
     @rental_request = RentalRequest.new(rental_request_params)
     # @rental_request.video_cassette = VideoCassette.find(params[:rental_request][:video_cassette_id])
     @rental_request.user = current_user
+
+    authorize @rental_request
+
     @rental_request.save
     flash.notice = "Request Submitted!"
 
@@ -25,6 +35,9 @@ class RentalRequestsController < ApplicationController
   def accept_request
     @rental_request = RentalRequest.find(params[:id])
     @rental_request.status = "Accepted"
+
+    authorize @rental_request
+
     @rental_request.save
     flash.notice = "Accepted request!"
 
@@ -34,6 +47,9 @@ class RentalRequestsController < ApplicationController
   def reject_request
     @rental_request = RentalRequest.find(params[:id])
     @rental_request.status = "Rejected"
+
+    authorize @rental_request
+
     @rental_request.save
     flash.notice = "Rejected request!"
 

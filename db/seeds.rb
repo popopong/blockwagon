@@ -113,7 +113,9 @@ RentalRequest.create!(message: "Hi im testing request 10", start_date: "2020-05-
 RentalRequest.create!(message: "Hi im testing request 11", start_date: "2020-05-21", end_date: "2020-05-27", video_cassette_id: video11.id, user_id: user1.id)
 RentalRequest.create!(message: "Hi im testing request 12", start_date: "2020-05-21", end_date: "2020-05-28", video_cassette_id: video12.id, user_id: user1.id)
 
-puts "12 rental requests successfully created!"
+RentalRequest.create!(message: "Hi im testing request 13", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video10.id, user_id: user2.id)
+
+puts "13 rental requests successfully created!"
 
 puts "Creating wishlists..."
 Wishlist.create!(user_id: user4.id, video_cassette_id: video1.id)
