@@ -10,6 +10,7 @@
 
 a {
   color:black;
+  transition: 0.2s;
 }
 
 a:hover {
@@ -21,6 +22,10 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.navbar:hover {
+  background-color: rgba(255,255,255,1) !important;
 }
 
 .nav-link {
