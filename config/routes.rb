@@ -23,10 +23,10 @@ Rails.application.routes.draw do
   # get '/wishlists', to: 'wishlist#index' # I can view my wishlist of movies (extra)
 
 
-  resources :rental_requests, only: [:index, :create, :edit, :update]
+  resources :rental_requests, only: [:index, :create]
 
-  patch "rental_requests/:id", to: "rental_requests#accept_request", as: :accept_request
-  patch "rental_requests/:id", to: "rental_requests#reject_request", as: :reject_request
+  patch "rental_requests/:id/accept", to: "rental_requests#accept_request", as: :accept_request
+  patch "rental_requests/:id/reject", to: "rental_requests#reject_request", as: :reject_request
 
   resources :users, only: [:show, :edit, :update]
 

@@ -1,0 +1,25 @@
+.incoming_requests .tick {
+  color: #1cdd49;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 40px;
+  left: 115px;
+  opacity: .7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.incoming_requests .cross {
+  color: #fc1f1b;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 40px;
+  left: 152px;
+  opacity: .7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
