@@ -1,5 +1,5 @@
 class WishlistPolicy < ApplicationPolicy
-  def show?
+  def index?
     Wishlist.user == user
   end
 
