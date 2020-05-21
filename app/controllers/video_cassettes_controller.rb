@@ -16,13 +16,26 @@ class VideoCassettesController < ApplicationController
   def create
     @video_cassette = VideoCassette.new(video_cassettes_params)
     @video_cassette.user = current_user
+
     if @video_cassette.save
       flash.notice = "VHS Added!"
       redirect_to video_cassette_path(@video_cassette)
     else
       render :new
     end
+  end
 
+  def edit
+    @video_cassette = VideoCassette.find(params[:id])
+  end
+
+  def update
+    @video_cassette = VideoCassette.find(params[:id])
+    @video_cassette.user = current_user
+
+    @video_cassette.update(video_cassettes_params)
+
+    redirect_to video_cassette_path(@video_cassette)
   end
 
   def destroy
