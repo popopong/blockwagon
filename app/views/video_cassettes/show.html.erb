@@ -21,17 +21,30 @@
     </div>
 
     <div class="col-6 align-self-center">
-      <% if @user_wishlist %>
-        <%= link_to wishlist_path(@user_wishlist), method: 'delete' do%>
-          <i class="fas fa-star" class="pb-3" style="color: #f7de25; font-size: 2rem;"></i>
+      <div class="buttons">
+        <% if @user_wishlist %>
+          <%= link_to wishlist_path(@user_wishlist), method: 'delete' do%>
+            <i class="wish fas fa-star" class="pb-3"></i>
+          <% end %>
+        <% else %>
+          <%= link_to video_cassette_wishlists_path(@video_cassette), method: 'post' do%>
+            <i class="wish far fa-star mb-3"></i>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to video_cassette_wishlists_path(@video_cassette), method: 'post' do%>
-          <i class="far fa-star" class="mb-3" style="color: #f7de25; font-size: 2rem;"></i>
-        <% end %>
-      <% end %>
-      
 
+        <% if @video_cassette.user == current_user %>
+          <%= link_to edit_video_cassette_path do %>
+            <i class="edit fas fa-edit mb-3"></i>
+          <% end %>
+        <% end %>
+
+        <% if @video_cassette.user == current_user %>
+          <%= link_to video_cassette_path(@video_cassette), method: 'delete', data: {confirm: "Delete this listing?"} do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+
+      </div>
       <p><%= @video_cassette.description %></p>
       <%= simple_form_for @rental_request do |f| %>
         <%= f.input :start_date, as: :date, start_year: Date.today.year, order: [:day, :month, :year], html5: true, input_html: { min: Date.today.to_s, value: Date.today.to_s } %>
@@ -42,10 +55,9 @@
         <!-- After finishing the login function and page -->
         <!--remember to add another hidden field with :user_id, value: current_user.id -->
       <% end %>
-
+      <%= render 'shared/previous_page' %>
     </div>
   </div>
 
-
-
 </div>
+
