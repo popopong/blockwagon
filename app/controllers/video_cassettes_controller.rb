@@ -1,7 +1,8 @@
 class VideoCassettesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @video_cassettes = policy_scope(VideoCassette)
-    # @video_cassettes = VideoCassette.all
   end
 
   def show
