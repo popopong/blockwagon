@@ -5,7 +5,7 @@ class VideoCassettesController < ApplicationController
   end
 
   def show
-    @video_cassette = policy_scope(VideoCassette.find(params[:id]))
+    @video_cassette = VideoCassette.find(params[:id])
     @rental_request = RentalRequest.new
     @user_wishlist = @video_cassette.wishlists.find_by(user: current_user)
     
