@@ -100,5 +100,5 @@ Wishlist.create!(user_id: user1.id, video_cassette_id: video10.id)
 Wishlist.create!(user_id: user1.id, video_cassette_id: video11.id)
 Wishlist.create!(user_id: user1.id, video_cassette_id: video12.id)
 
-puts "12 movies, 4 users, 12 rental requests, 12 wishlists created - use stepd@hello.come or poyan@hello.com to test rentalrequest and wishlist pages!"
+puts "12 movies, 4 users, 12 rental requests, 12 wishlists created - use stepd@hello.com or poyan@hello.com to test rentalrequest and wishlist pages!"
 
