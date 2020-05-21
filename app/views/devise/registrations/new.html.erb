@@ -34,9 +34,10 @@
                       input_html: { autocomplete: "new-password" } %>
         </div>
         <div class="col-sm">
-           <%= f.input :about,
+           <%= f.text_area :about,
                   placeholder: "About Yourself",
-                  label: false %>
+                  label: false,
+                  class: 'about-user form-control' %>
         </div>
       </div>
     </div>

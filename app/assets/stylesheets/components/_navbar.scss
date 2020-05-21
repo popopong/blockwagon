@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  transition: 0.2s;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,8 +17,16 @@ a:hover {
   color:black;
 }
 
-.navbar{
+.navbar {
   position: sticky;
   top: 0;
   z-index: 999;
+}
+
+.nav-link {
+  margin-bottom: 0;
+}
+
+.dropdown-menu {
+  padding-left: 10px;
 }
