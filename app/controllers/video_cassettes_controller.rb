@@ -1,11 +1,12 @@
 class VideoCassettesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @video_cassettes = policy_scope(VideoCassette)
-    # @video_cassettes = VideoCassette.all
   end
 
   def show
-    @video_cassette = policy_scope(VideoCassette.find(params[:id]))
+    @video_cassette = VideoCassette.find(params[:id])
     @rental_request = RentalRequest.new
     @user_wishlist = @video_cassette.wishlists.find_by(user: current_user)
     
