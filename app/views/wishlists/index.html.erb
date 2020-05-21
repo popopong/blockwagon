@@ -1,18 +1,19 @@
-<h1>My Wishlist</h1>
+<div class="container wishlist">
+  <h1>My Wishlist</h1>
 
-<p><%= link_to "Back to Profile", user_path(current_user) %></p>
+  <p><%= link_to "Back to Profile", user_path(current_user) %></p>
 
-<% @video_ids.each do |video| %>
-  <li>
-    <%= image_tag(video.cover_photo) %>
-    <%= User.find(video.user_id).first_name %>
-    <%= image_tag(User.find(video.user_id).avatar) %>
-    <%= video.title %>
-    <%= video.year %>
-  </li>
-<% end %>
+  <div class = "wishlist-grid">
+    <% @video_ids.each do |video| %>
+      <div class="wishlist-item">
+        <% cover = image_tag(video.cover_photo, class:'cover-img') %>
+        <%= link_to cover, video_cassette_path(video.id) %>
+        <%= image_tag(User.find(video.user_id).avatar, class: "avatar wishlist-avatar") %>
+        <p><%= video.title %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<br>
-<br>
 
-<%= current_user.id %>
+
