@@ -1,12 +1,12 @@
-<div class="container text-center">
-  <span>
+<div class="container user">
+  <div>
     <h1>My Profile</h1>
-    <%= image_tag(@user.avatar, class: 'avatar big') %>
-    <%= link_to  edit_user_path(current_user) do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-  </span>
+  </div>
 
+  <%= image_tag(@user.avatar, class: 'avatar big') %>
+  <%= link_to  edit_user_path(current_user) do %>
+    <i class="fas fa-pencil-alt"></i>
+  <% end %>
   <h2><%= @user.first_name %> <%= @user.last_name %> </h2>
 
   <p>Email: <%= @user.email %></p>
