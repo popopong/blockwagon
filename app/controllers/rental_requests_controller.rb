@@ -2,7 +2,12 @@ class RentalRequestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @rental_requests = RentalRequest.all
+    @outgoing_rental_requests = RentalRequest.where(user: current_user)
+    rental_requests = RentalRequest.all
+    @incoming_rental_requests = rental_requests.select do |request|
+    request.video_cassette.user == current_user
+
+    end
   end
 
   # Form to create new request will be embedded on Videos Show
@@ -17,11 +22,21 @@ class RentalRequestsController < ApplicationController
     redirect_to video_cassette_path(@rental_request.video_cassette_id)
   end
 
-  def accepted_rentals
-    @rental_requests = RentalRequest.where(user_id: current_user.id,
-                                           status: "Accepted")
+  def accept_request
+    @rental_request = RentalRequest.find(params[:id])
+    @rental_request.status = "Accepted"
+    @rental_request.save
+
+    redirect_to :index
   end
 
+  def reject_request
+    @rental_request = RentalRequest.find(params[:id])
+    @rental_request.status = "Rejected"
+    @rental_request.save
+
+    redirect_to :index
+  end
   # Update/ edit forms will be buttons on Accepted Rentals page
 
   # THIS NEEDS WORK, need to figure out input from user
@@ -32,7 +47,7 @@ class RentalRequestsController < ApplicationController
 
   def update
     @rental_request = RentalRequest.find(params[:id])
-    @video_cassette = RentalRequest.video_cassette
+    @video_cassette = @rental_request.video_cassette
     @rental_request = RentalRequest.update(status: "")
   end
 

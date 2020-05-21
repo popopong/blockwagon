@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
 
   resources :rental_requests, only: [:index, :create, :edit, :update]
-  get 'user/:id/accepted', to: 'rental_request#accepted_rentals'
+
+  patch "rental_requests/:id", to: "rental_requests#accept_request", as: :accept_request
+  patch "rental_requests/:id", to: "rental_requests#reject_request", as: :reject_request
 
   resources :users, only: [:show, :edit, :update]
 
