@@ -34,7 +34,7 @@
   </div>
 
   <div class="container my-5">
-    <h4><strong>Outgoing Request 😁</strong></h4>
+    <h4><strong>Outgoing Requests 😁</strong></h4>
   </div>
 
   <% if @outgoing_rental_requests.size > 5 %>
@@ -49,7 +49,7 @@
 
           <%= image_tag request.video_cassette.cover_photo, class: "cover-img" %>
 
-          <div class="card-small-info" style="display: inline-block" >
+          <div class="card-small-info" style="display: block" >
             <h5><strong><%= request.video_cassette.title %></strong></h5>
             <p><%= request.video_cassette.year %></p> <p><%= request.video_cassette.price %>.00$</p>
             <img src="<%= request.video_cassette.user.avatar %>" alt="User profile pic">
