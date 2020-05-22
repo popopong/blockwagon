@@ -4,7 +4,7 @@
   </div>
 
   <%= image_tag(@user.avatar, class: 'avatar big') %>
-    <% if @use.avatar.blank? %>
+    <% if @user.avatar.blank? %>
       <%= cl_image_tag "dwfqum1jplhin0ekgwzj" %>
     <% end %>
   <%= link_to  edit_user_path(current_user) do %>
