@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :rental_requests
   has_many :video_cassettes, through: :wishlists
+  has_many :video_cassettes
   has_many :wishlists
 
   validates :first_name, presence: true
