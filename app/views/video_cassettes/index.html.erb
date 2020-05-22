@@ -14,7 +14,7 @@
       <h4><strong>Search results 👀</strong></h4>
   </div>
   <% if @pg_search_documents.size > 5 %>
-      <div class="d-flex incoming_requests" style="width:100%; overflow:auto; margin: auto">
+      <div class="d-flex incoming_requests" style="width:100%; overflow-x: scroll; margin: auto">
     <% else %>
         <div class="d-flex incoming_requests" style="width:80%; margin: auto">
     <% end %>
@@ -39,7 +39,7 @@
   <div class="container mt-5">
     <h4><strong>Latest videocassettes added 😁</strong></h4>
   </div>
-  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow:scroll">
+  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow-x: scroll">
     <%= render 'shared/vhs_scroll' %>
   </div>
 
@@ -48,7 +48,7 @@
     <h4><strong>Most popular videocassette rentals ⭐</strong></h4>
   </div>
 
-  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow:scroll">
+  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow-x: scroll">
     <% rentals = RentalRequest.where(status: "Pending") %>
     <% vids_rented = rentals.map { |rental| rental.video_cassette_id} %>
     <% most_rented = vids_rented.map { |id| VideoCassette.find(id) }%>
@@ -78,7 +78,7 @@
   <div class="container">
     <h4><strong>Looking for a good laugh? 😂</strong></h4>
   </div>
-  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow:scroll">
+  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow-x: scroll">
     <% comedy = Genre.find_by(name: "comedy")%>
     <% tagged_comedy = VideoGenre.where(genre: comedy)%>
     <% array_id_comedy = tagged_comedy.limit(10).map { |tag| tag.video_cassette_id } %>
@@ -109,7 +109,7 @@
     <h4><strong>More into family-friendly VHS? 👪</strong></h4>
   </div>
 
-  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow:scroll">
+  <div class="d-flex scroll-section align-items-center" style="width:100%; overflow-x: scroll">
     <% family = Genre.find_by(name: "family")%>
     <% tagged_family = VideoGenre.where(genre: family)%>
     <% array_id_family = tagged_family.map { |tag| tag.video_cassette_id } %>
@@ -140,7 +140,7 @@
     <h4><strong>Want some drama? 🙊</strong></h4>
   </div>
 
-  <div class="d-flex scroll-section mb-5 align-items-center" style="width:100%; overflow:scroll">
+  <div class="d-flex scroll-section mb-5 align-items-center" style="width:100%; overflow-x: scroll">
     <% drama = Genre.find_by(name: "drama")%>
     <% tagged_drama = VideoGenre.where(genre: drama)%>
     <% array_id_drama = tagged_drama.map { |tag| tag.video_cassette_id } %>
