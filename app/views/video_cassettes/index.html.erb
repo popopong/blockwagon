@@ -4,10 +4,37 @@
   <div class="container mt-5">
     <%= form_tag video_cassettes_path, method: :get do %>
       <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a videocassette"%>
-      <%= submit_tag "Search", class: "btn btn-primary"%>
+      <%= submit_tag "Search", class: "btn btn-primary mt-3"%>
     <% end %>
   </div>
 
+<%# Latest videocassettes %>
+<% if @pg_search_documents.exists? %>
+  <div class="container mt-5 mb-5">
+      <h4><strong>Search results 👀</strong></h4>
+  </div>
+  <% if @pg_search_documents.size > 5 %>
+      <div class="d-flex incoming_requests" style="width:100%; overflow:auto; margin: auto">
+    <% else %>
+        <div class="d-flex incoming_requests" style="width:80%; margin: auto">
+    <% end %>
+
+      <% @pg_search_documents.each do |item| %>
+        <%= link_to video_cassette_path(item) do %>
+          <div class="card-small mx-2">
+
+            <%= image_tag item.cover_photo, class: "cover-img" %>
+
+            <div class="card-small-info" style="display: block" >
+              <h5><strong><%= item.title %></strong></h5>
+              <p><%= item.year %></p> <p><%= item.price %>.00$</p>
+              <img src="<%= item.user.avatar %>" alt="User profile pic">
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+<% end %>
 <%# Latest videocassettes %>
   <div class="container mt-5">
     <h4><strong>Latest videocassettes added 😁</strong></h4>
