@@ -11,7 +11,7 @@ const navbarTransparent = () => {
       target.style.textShadow = "1px 0px 10px lightgrey"
     } else {
       // target.style.backgroundColor = 'rgba(26, 29, 41, 1)';
-      target.firstElementChild.innerText = "Blockwagon"
+      target.firstElementChild.innerText = "BlockWagon"
       target.classList.remove("scrolled");
       target.style.textShadow = ""
     }
