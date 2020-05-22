@@ -3,13 +3,13 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-3" >
-      <%= image_tag @video_cassette.cover_photo, class: "w-100 mb-4" %>
+      <%= image_tag @video_cassette.cover_photo, class: "w-100" %>
         <% if @video_cassette.cover_photo.blank? %>
           <div class="my-4">
             <%= cl_image_tag "sgd0lxiqljmt9pn1ghkw" %>
           </div>
         <% end %>
-      <div class="d-flex">
+      <div class="d-flex p-2" style="background-color: lightgrey; color: black;">
 
         <div class="flex-column mr-3">
           <h4><%= @video_cassette.title %></h4>
