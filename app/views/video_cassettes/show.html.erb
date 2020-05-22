@@ -2,13 +2,20 @@
 
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-3">
+    <div class="col-3" >
       <%= image_tag @video_cassette.cover_photo, class: "w-100 mb-4" %>
+        <% if @video_cassette.cover_photo.blank? %>
+          <div class="my-4">
+            <%= cl_image_tag "sgd0lxiqljmt9pn1ghkw" %>
+          </div>
+        <% end %>
       <div class="d-flex">
+
         <div class="flex-column mr-3">
           <h4><%= @video_cassette.title %></h4>
           <p><%= @video_cassette.year %></p>
         </div>
+
         <div class="flex-column">
           <% if @video_cassette.user.avatar %>
             <%= image_tag @video_cassette.user.avatar, class: "avatar" %>
@@ -17,6 +24,7 @@
           <% end %>
           <p><%= @video_cassette.user.first_name %></p>
         </div>
+
       </div>
     </div>
 
@@ -24,7 +32,7 @@
       <div class="buttons">
 
         <%= render 'wishlist_star' %>
-        
+
         <% if @video_cassette.user == current_user %>
           <%= link_to edit_video_cassette_path do %>
             <i class="edit fas fa-edit mb-3"></i>
