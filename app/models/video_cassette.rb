@@ -9,4 +9,11 @@ class VideoCassette < ApplicationRecord
   validates :year, presence: true
   validates :description, presence: true, length: { minimum: 10 }
   validates :price, presence: true, numericality: { only_integer: true }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+    against: [ :title ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
