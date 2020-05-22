@@ -1,5 +1,5 @@
-<% video_cassettes = VideoCassette.all %>
-<% filtered_vids = video_cassettes.reject do |vhs| %>
+<%# <% video_cassettes = VideoCassette.all %>
+<% filtered_vids = @video_cassettes.reject do |vhs| %>
   <% vhs.user == current_user %>
 <% end %>
 
