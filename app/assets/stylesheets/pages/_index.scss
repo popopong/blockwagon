@@ -4,3 +4,12 @@
 @import "wishlist";
 @import "rental_request_index";
 @import "video_cassette_show";
+
+body {
+  background: $color2;
+  color: $color5;
+}
+
+.page-layout {
+  min-height: calc(100vh - 156px);
+}
