@@ -7,6 +7,10 @@ class UserPolicy < ApplicationPolicy
     record == user
   end
 
+  # def my_listings?
+  #   record.video_cassettes == user
+  # end
+
   class Scope < Scope
     def resolve
       scope.all
