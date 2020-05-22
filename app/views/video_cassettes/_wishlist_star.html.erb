@@ -1,7 +1,7 @@
 <% if @video_cassette.user != current_user %>
   <% if @user_wishlist %>
     <%= link_to wishlist_path(@user_wishlist), method: 'delete' do%>
-      <i class="wish fas fa-star" class="pb-3 pt-3"></i>
+      <i class="wish fas fa-star pb-3 pt-3"></i>
     <% end %>
   <% else %>
     <%= link_to video_cassette_wishlists_path(@video_cassette), method: 'post' do%>
