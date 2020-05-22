@@ -12,15 +12,10 @@ class RentalRequestsController < ApplicationController
     end
   end
 
-  # def incoming_rental_requests
-  #   @incoming_rental_requests = rental_requests.where(video_cassettes: { user: User.first })
-  # end
-
   # Form to create new request will be embedded on Videos Show
 
   def create
     @rental_request = RentalRequest.new(rental_request_params)
-    # @rental_request.video_cassette = VideoCassette.find(params[:rental_request][:video_cassette_id])
     @rental_request.user = current_user
 
     authorize @rental_request
@@ -57,7 +52,8 @@ class RentalRequestsController < ApplicationController
   end
 
   def history
-
+    @rental_requests = RentalRequest.where(user: current_user)
+    authorize @rental_requests
   end
 
   private
