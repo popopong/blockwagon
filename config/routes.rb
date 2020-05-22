@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:show, :edit, :update]
+  get "users/:id/my_listings", to: "users#my_listings", as: :my_listings
 
   resources :video_cassettes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :wishlists, only: [:create]
