@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   patch "rental_requests/:id/reject", to: "rental_requests#reject_request", as: :reject_request
 
   resources :users, only: [:show, :edit, :update]
+  get "users/:id/my_listings", to: "users#my_listings", as: :my_listings
 
   resources :video_cassettes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :wishlists, only: [:create]
