@@ -1,5 +1,5 @@
 <div class="container wishlist">
-  <p><%= link_to "Back to Profile", user_path(current_user) %></p>
+  <p><%= link_to "Back to Profile", user_path(current_user), class: "btn btn-primary" %></p>
 
   <div class = "wishlist-grid">
     <% @my_listings.each do |listing| %>
