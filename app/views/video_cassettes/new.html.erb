@@ -3,41 +3,8 @@
 
 <div class="form-container">
   <h2 class="text-center">Add your VHS!</h2>
-
-    <%= simple_form_for [@user, @video_cassette] do |f| %>
-      <div class="form-inputs">
-        <%= f.input :title,
-                    required: false,
-                    label: false,
-                    autofocus: true,
-                    placeholder: "Title" %>
-        <%= f.input :year,
-                    required: false,
-                    label: false,
-                    autofocus: true,
-                    placeholder: "Year" %>
-        <%= f.input :cover_photo,
-                    required: false,
-                    label: false,
-                    autofocus: true,
-                    placeholder: "Cover Photo" %>
-        <%= f.input :description,
-                    required: false,
-                    label: false,
-                    autofocus: true,
-                    placeholder: "Description" %>
-        <%= f.input :price,
-                    required: false,
-                    label: false,
-                    autofocus: true,
-                    placeholder: "Price" %>
-
-      </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Add VHS", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+  <%= render 'form' %>
+  <%= render 'shared/previous_page' %>
 </div>
 
 
