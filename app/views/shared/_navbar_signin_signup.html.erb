@@ -1,17 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="/">BlockWagon</a>
 
+  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="container d-flex navbar-nav mr-auto">
-      <li class="nav-item mr-3">
+      <li class="nav-item">
         <p class="nav-link"><%= link_to "Add a VHS", new_video_cassette_path %></p>
       </li>
-      <li class=" nav-item mr-3">
-        <%= link_to "Sign in", new_user_session_path %>
+      <li class=" nav-item">
+        <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "Sign up", new_user_registration_path %>
+        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
       </li>
     </ul>
   </div>
