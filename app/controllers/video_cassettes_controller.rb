@@ -2,13 +2,14 @@ class VideoCassettesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      sql_query = "title ILIKE :query OR syllabus ILIKE :query"
+    # if params[:query].present?
+    #   sql_query = "title ILIKE :query OR syllabus ILIKE :query"
       # @movies = Movie.where(sql_query, query: "%#{params[:query]}%")
       # @video_cassettes = policy_scope(VideoCassette.where(sql_query, query: "%#{params[:query]}%"))
-    else
+    # else
+      @pg_search_documents = VideoCassette.search_by_title(params[:query])
       @video_cassettes = policy_scope(VideoCassette)
-    end
+    # end
   end
 
   def show
