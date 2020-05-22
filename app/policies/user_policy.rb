@@ -1,11 +1,10 @@
 class UserPolicy < ApplicationPolicy
-  def show
+  def show?
     true
   end
 
-  def update
-    user_profile = User.find(params[:id])
-    user_profile == user
+  def update?
+    record == user
   end
 
   class Scope < Scope
