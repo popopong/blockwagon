@@ -25,8 +25,10 @@ Rails.application.routes.draw do
 
   resources :rental_requests, only: [:index, :create]
 
+  get "rental_requests/history", to: "rental_requests#history", as: :request_history
   patch "rental_requests/:id/accept", to: "rental_requests#accept_request", as: :accept_request
   patch "rental_requests/:id/reject", to: "rental_requests#reject_request", as: :reject_request
+
 
   resources :users, only: [:show, :edit, :update]
   get "users/:id/my_listings", to: "users#my_listings", as: :my_listings
