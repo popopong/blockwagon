@@ -19,6 +19,10 @@ class VideoCassettePolicy < ApplicationPolicy
     user_is_owner?
   end
   
+  def my_listings?
+    user_is_owner?
+  end
+
   class Scope < Scope
     def resolve
       scope.all

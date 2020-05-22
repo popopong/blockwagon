@@ -5,22 +5,19 @@ class RentalRequestsController < ApplicationController
     # How to do policy_scope on @outgoing_rental_requests?
     rental_requests = policy_scope(RentalRequest)
 
-    @outgoing_rental_requests = rental_requests.where(user: current_user)
-
+    @outgoing_rental_requests = rental_requests.select do |request|
+      request.user == current_user && request.status == "Pending"
+    end
+    
     @incoming_rental_requests = rental_requests.select do |request|
       request.video_cassette.user == current_user && request.status == "Pending"
     end
   end
 
-  # def incoming_rental_requests
-  #   @incoming_rental_requests = rental_requests.where(video_cassettes: { user: User.first })
-  # end
-
   # Form to create new request will be embedded on Videos Show
 
   def create
     @rental_request = RentalRequest.new(rental_request_params)
-    # @rental_request.video_cassette = VideoCassette.find(params[:rental_request][:video_cassette_id])
     @rental_request.user = current_user
 
     authorize @rental_request
@@ -49,8 +46,8 @@ class RentalRequestsController < ApplicationController
     @rental_request.status = "Rejected"
 
     authorize @rental_request
-
     @rental_request.save
+    
     flash.notice = "Rejected request!"
 
     redirect_to rental_requests_path
@@ -58,6 +55,9 @@ class RentalRequestsController < ApplicationController
 
   def history
 
+    @rental_history = RentalRequest.all
+
+    authorize @rental_history
   end
 
   private
