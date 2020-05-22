@@ -7,7 +7,7 @@ const navbarTransparent = () => {
     if (height > 10 ){
       // target.style.backgroundColor = 'rgba(26, 29, 41, 0.7)';
       target.classList.add("scrolled");
-      target.firstElementChild.innerText = "BL"
+      target.firstElementChild.innerText = "BW"
       target.style.textShadow = "1px 0px 10px lightgrey"
     } else {
       // target.style.backgroundColor = 'rgba(26, 29, 41, 1)';
