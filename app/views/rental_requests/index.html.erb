@@ -1,8 +1,9 @@
   <div class="container my-5">
-    <h4><strong>Incoming Requests</strong>
-    <%= link_to request_history_path do %>
-      <i class="fas fa-scroll request-history-btn"></i>
-    <% end %>
+    <h4>
+      <strong>Incoming Requests</strong>
+      <%= link_to request_history_path do %>
+        <i class="fas fa-scroll request-history-btn"></i>
+      <% end %>
     </h4>
   </div>
 
@@ -15,10 +16,10 @@
 
     <% @incoming_rental_requests.each do |request| %>
       <%= link_to video_cassette_path(request.video_cassette) do %>
-        <div class="card-small mx-2">
-          <%= image_tag request.video_cassette.cover_photo, class: "cover-img" %>
+        <div class="card-small mx-2 request-card">
+          <%= image_tag request.video_cassette.cover_photo, class: "cover-img request-img" %>
 
-          <div class="card-small-info" style= "display: block;" >
+          <div class="card-small-info" style= "display: block; padding: 10px;" >
             <h5><strong><%= request.video_cassette.title %></strong></h5>
             <p><%= request.video_cassette.year %></p> <p><%= request.video_cassette.price %>.00$</p>
             <%= link_to accept_request_path(request), method: 'patch', data: {confirm: "Accept this request?"} do %>
@@ -45,11 +46,11 @@
 
     <% @outgoing_rental_requests.each do |request| %>
       <%= link_to video_cassette_path(request.video_cassette) do %>
-        <div class="card-small mx-2">
+        <div class="card-small mx-2 request-card">
 
-          <%= image_tag request.video_cassette.cover_photo, class: "cover-img" %>
+          <%= image_tag request.video_cassette.cover_photo, class: "cover-img request-img" %>
 
-          <div class="card-small-info" style="display: block" >
+          <div class="card-small-info" style="display: block; padding: 10px;" >
             <h5><strong><%= request.video_cassette.title %></strong></h5>
             <p><%= request.video_cassette.year %></p> <p><%= request.video_cassette.price %>.00$</p>
             <img src="<%= request.video_cassette.user.avatar %>" alt="User profile pic">
