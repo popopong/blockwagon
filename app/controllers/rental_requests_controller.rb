@@ -54,8 +54,10 @@ class RentalRequestsController < ApplicationController
   end
 
   def history
-    @rental_requests = RentalRequest.where(user: current_user)
-    authorize @rental_requests
+
+    @rental_history = RentalRequest.all
+
+    authorize @rental_history
   end
 
   private
