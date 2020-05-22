@@ -38,7 +38,7 @@
   <% else %>
       <div class="d-flex incoming_requests" style="width:80%; margin: auto">
   <% end %>
-  
+
     <% @outgoing_rental_requests.each do |request| %>
       <%= link_to video_cassette_path(request.video_cassette) do %>
         <div class="card-small mx-2">
@@ -54,4 +54,5 @@
       <% end %>
     <% end %>
   </div>
+
 
