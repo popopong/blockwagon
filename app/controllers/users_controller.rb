@@ -24,6 +24,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def my_listings
+    @listings = VideoCassette.all
+    @my_listings = @listings.select do |list|
+      list.user == current_user
+    end
+  end
+
   private
 
   def user_params
