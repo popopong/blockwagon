@@ -8,11 +8,8 @@
   </div>
 
   <!-- Only activate scroll bar if more than 5 cards -->
-  <% if @incoming_rental_requests.size > 5 %>
-    <div class="d-flex incoming_requests" style="width:80%; overflow:auto; margin: auto">
-  <% else %>
-      <div class="d-flex incoming_requests" style="width:80%; margin: auto">
-  <% end %>
+    <div class="d-flex incoming_requests" style="width:80%; overflow-x: scroll; margin: auto">
+
 
     <% @incoming_rental_requests.each do |request| %>
       <%= link_to video_cassette_path(request.video_cassette) do %>

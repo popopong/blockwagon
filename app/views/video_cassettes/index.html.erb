@@ -1,8 +1,7 @@
 <%= render 'shared/carousel' %>
-
 <%# Search bar %>
   <div class="container mt-5">
-    <%= form_tag video_cassettes_path, method: :get, class: 'form-inline' do %>
+    <%= form_tag video_cassettes_path, method: :get, class: 'form-inline search_bar' do %>
       <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a videocassette"%>
       <%= submit_tag "Search", class: "btn btn-primary ml-2" %>
     <% end %>

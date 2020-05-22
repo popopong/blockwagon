@@ -7,15 +7,15 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-  color: black;
+  color: white;
 }
 
-a {
+.navbar a {
   transition: 0.2s;
-}
-
-a:hover {
-  text-decoration: none;
+  color: $color5;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .navbar {
@@ -55,8 +55,5 @@ a:hover {
 
 .dropdown-menu-right {
   background-color: $color2;
-}
 
-// #right-dropdown:hover {
-//   opacity: 1;
-// }
+}
