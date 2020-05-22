@@ -15,8 +15,10 @@ class RentalRequestPolicy < ApplicationPolicy
     user_is_owner_of_rental?
   end
 
-  def update?
+  def history?
+    true
   end
+  
   class Scope < Scope
     def resolve
       scope.joins(:video_cassette).where("rental_requests.user_id = ? OR video_cassettes.user_id = ?", user.id, user.id)
