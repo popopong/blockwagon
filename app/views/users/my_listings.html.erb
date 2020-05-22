@@ -1,1 +1,20 @@
-@my_listings
+<div class="container wishlist">
+  <p><%= link_to "Back to Profile", user_path(current_user) %></p>
+
+  <div class = "wishlist-grid">
+    <% @my_listings.each do |listing| %>
+      <div class="wishlist-item">
+        <% cover = image_tag(listing.cover_photo, class:'cover-img') %>
+        <%= link_to cover, video_cassette_path(listing.id) %>
+
+        <div class="wishlist-text">
+          <%= image_tag(User.find(listing.user_id).avatar, class: "avatar wishlist-avatar") %>
+          <p><%= listing.title %></p>
+          <p><%= listing.price %>$ </p>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+
+</div>
