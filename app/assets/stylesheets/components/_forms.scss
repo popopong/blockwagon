@@ -19,8 +19,12 @@
 
   .form-control, .select2-selection, .select2-results__options {
     width: 80vw;
+  }
+
+  .select2-selection, .select2-results__options {
     color: $color5;
   }
+
   .select2-dropdown {
     width: 80vw !important;
   }
