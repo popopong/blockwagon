@@ -8,8 +8,11 @@
       <div class="wishlist-item">
         <% cover = image_tag(video.cover_photo, class:'cover-img') %>
         <%= link_to cover, video_cassette_path(video.id) %>
-        <%= image_tag(User.find(video.user_id).avatar, class: "avatar wishlist-avatar") %>
-        <p><%= video.title %></p>
+        <div class="wishlist-text">
+          <%= image_tag(User.find(video.user_id).avatar, class: "avatar wishlist-avatar") %>
+          <p><%= video.title %></p>
+          <p><%= video.price %>$ </p>
+        </div>
       </div>
     <% end %>
   </div>

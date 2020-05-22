@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   def show
-  @user = User.find(params[:id])
+    @user = User.find(params[:id])
 
-  skip_authorization
-  skip_policy_scope
+    skip_authorization
+    skip_policy_scope
   end
 
   def edit
     @user = User.find(params[:id])
-
+    
     authorize @user
   end
 
