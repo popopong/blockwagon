@@ -5,7 +5,9 @@ class RentalRequestsController < ApplicationController
     # How to do policy_scope on @outgoing_rental_requests?
     rental_requests = policy_scope(RentalRequest)
 
-    @outgoing_rental_requests = rental_requests.where(user: current_user)
+    @outgoing_rental_requests = rental_requests.select do |request|
+      request.user == current_user && request.status == "Pending"
+    end
 
     @incoming_rental_requests = rental_requests.select do |request|
       request.video_cassette.user == current_user && request.status == "Pending"
