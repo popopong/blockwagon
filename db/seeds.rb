@@ -97,7 +97,19 @@ open_url = open('http://www.omdbapi.com/?i=tt0099785&apikey=bea36d3e').read
 movie = JSON.parse(open_url)
 video12 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: movie["Poster"], user_id: user4.id)
 
-puts "12 video cassettes successfully created!"
+open_url = open('http://www.omdbapi.com/?i=tt0000003&apikey=bea36d3e').read
+movie = JSON.parse(open_url)
+video13 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 4, cover_photo: movie["Poster"], user_id: user1.id)
+
+open_url = open('http://www.omdbapi.com/?i=tt0838283&apikey=bea36d3e').read
+movie = JSON.parse(open_url)
+video14 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: movie["Poster"], user_id: user3.id)
+
+open_url = open('http://www.omdbapi.com/?i=tt0332280&apikey=bea36d3e').read
+movie = JSON.parse(open_url)
+video15 = VideoCassette.create(title: movie["Title"], year: movie["Year"], description: movie["Plot"], price: 10, cover_photo: movie["Poster"], user_id: user4.id)
+
+puts "15 video cassettes successfully created!"
 
 puts "Creating rental requests..."
 RentalRequest.create!(message: "Hi im testing request 1", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video1.id, user_id: user4.id)
@@ -116,6 +128,7 @@ RentalRequest.create!(message: "Hi im testing request 12", start_date: "2020-05-
 
 RentalRequest.create!(message: "Hi im testing request 13", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video10.id, user_id: user2.id)
 
+RentalRequest.create!(message: "Hi im testing request 14", start_date: "2020-05-21", end_date: "2020-05-25", video_cassette_id: video15.id, user_id: user3.id)
 puts "13 rental requests successfully created!"
 
 puts "Creating wishlists..."
@@ -178,6 +191,14 @@ VideoGenre.create!(genre: drama, video_cassette_id: video11.id)
 VideoGenre.create!(genre: family, video_cassette_id: video12.id)
 VideoGenre.create!(genre: comedy, video_cassette_id: video12.id)
 
+VideoGenre.create!(genre: animation, video_cassette_id: video13.id)
+VideoGenre.create!(genre: comedy, video_cassette_id: video13.id)
+VideoGenre.create!(genre: romance, video_cassette_id: video13.id)
+
+VideoGenre.create!(genre: comedy, video_cassette_id: video14.id)
+
+VideoGenre.create!(genre: drama, video_cassette_id: video15.id)
+VideoGenre.create!(genre: romance, video_cassette_id: video15.id)
 puts "Linking genres to movies successful!"
 
 

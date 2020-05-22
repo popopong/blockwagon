@@ -18,7 +18,7 @@
     <% vids_rented = rentals.map { |rental| rental.video_cassette_id} %>
     <% most_rented = vids_rented.map { |id| VideoCassette.find(id) }%>
 
-    <% most_rented.each do |video_cassette| %>
+    <% most_rented.shuffle.each do |video_cassette| %>
         <div class="card-small mx-2 homepage-card">
           <a href=<%= video_cassette_path(video_cassette) %>>
             <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
@@ -45,7 +45,7 @@
     <% array_id_comedy = tagged_comedy.limit(10).map { |tag| tag.video_cassette_id } %>
     <% video_comedy = array_id_comedy.map { |id| VideoCassette.find(id) }%>
 
-    <% video_comedy.each do |video_cassette| %>
+    <% video_comedy.shuffle.each do |video_cassette| %>
         <div class="card-small mx-2 homepage-card">
           <a href=<%= video_cassette_path(video_cassette) %>>
             <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
@@ -73,7 +73,7 @@
     <% array_id_family = tagged_family.map { |tag| tag.video_cassette_id } %>
     <% video_family = array_id_family.map { |id| VideoCassette.find(id) }%>
 
-    <% video_family.each do |video_cassette| %>
+    <% video_family.shuffle.each do |video_cassette| %>
         <div class="card-small mx-2 homepage-card">
           <a href=<%= video_cassette_path(video_cassette) %>>
             <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
@@ -100,7 +100,7 @@
     <% array_id_drama = tagged_drama.map { |tag| tag.video_cassette_id } %>
     <% video_drama = array_id_drama.map { |id| VideoCassette.find(id) }%>
 
-    <% video_drama.each do |video_cassette| %>
+    <% video_drama.shuffle.each do |video_cassette| %>
         <div class="card-small mx-2 homepage-card">
           <a href=<%= video_cassette_path(video_cassette) %>>
             <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">
