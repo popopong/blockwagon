@@ -8,7 +8,7 @@ class RentalRequestsController < ApplicationController
     @outgoing_rental_requests = rental_requests.select do |request|
       request.user == current_user && request.status == "Pending"
     end
-
+    
     @incoming_rental_requests = rental_requests.select do |request|
       request.video_cassette.user == current_user && request.status == "Pending"
     end
@@ -46,8 +46,8 @@ class RentalRequestsController < ApplicationController
     @rental_request.status = "Rejected"
 
     authorize @rental_request
-
     @rental_request.save
+    
     flash.notice = "Rejected request!"
 
     redirect_to rental_requests_path

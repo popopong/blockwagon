@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+  skip_after_action :verify_authorized, only: :my_listings
+  after_action :verify_policy_scoped, only: :my_listings
+
   def show
     @user = User.find(params[:id])
-
-    skip_authorization
-    skip_policy_scope
+    authorize @user
   end
 
   def edit
@@ -25,8 +26,8 @@ class UsersController < ApplicationController
   end
 
   def my_listings
-    @listings = VideoCassette.all
-    authorize @listings
+    @listings = policy_scope(VideoCassette)
+    
 
     @my_listings = @listings.select do |list|
       list.user == current_user
