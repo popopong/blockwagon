@@ -1,7 +1,10 @@
   <div class="container my-5">
     <h4><strong>Incoming Request 😁</strong></h4>
+    <%= link_to request_history_path do %>
+      <i class="fas fa-scroll"></i>
+    <% end %>
   </div>
-  
+
   <!-- Only activate scroll bar if more than 5 cards -->
   <% if @incoming_rental_requests.size > 5 %>
     <div class="d-flex incoming_requests" style="width:80%; overflow:auto; margin: auto">
@@ -42,7 +45,7 @@
     <% @outgoing_rental_requests.each do |request| %>
       <%= link_to video_cassette_path(request.video_cassette) do %>
         <div class="card-small mx-2">
-          
+
           <%= image_tag request.video_cassette.cover_photo, class: "cover-img" %>
 
           <div class="card-small-info" style="display: inline-block" >

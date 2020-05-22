@@ -1,9 +1,9 @@
-<% video_cassettes = VideoCassette.all %>
-<% @filtered_vids = video_cassettes.reject do |vhs| %>
+<%# <% video_cassettes = VideoCassette.all %>
+<% filtered_vids = @video_cassettes.reject do |vhs| %>
   <% vhs.user == current_user %>
 <% end %>
 
-<% @filtered_vids.last(10).each do |video_cassette| %>
+<% filtered_vids.last(10).each do |video_cassette| %>
     <div class="card-small mx-2 homepage-card">
       <a href=<%= video_cassette_path(video_cassette) %>>
         <img class="cover-img" src="<%=video_cassette.cover_photo%>" alt="VHS cover">

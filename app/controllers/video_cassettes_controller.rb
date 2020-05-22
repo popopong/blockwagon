@@ -3,7 +3,11 @@ class VideoCassettesController < ApplicationController
 
   def index
     if params[:query].present?
+<<<<<<< HEAD
       # sql_query = "title ILIKE :query OR syllabus ILIKE :query"
+=======
+      sql_query = "title ILIKE :query OR syllabus ILIKE :query"
+>>>>>>> 7261c870f1b4920406e7859399ea8e97c1aa06bd
       # @movies = Movie.where(sql_query, query: "%#{params[:query]}%")
       # @video_cassettes = policy_scope(VideoCassette.where(sql_query, query: "%#{params[:query]}%"))
     else

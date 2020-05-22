@@ -56,6 +56,10 @@ class RentalRequestsController < ApplicationController
     redirect_to rental_requests_path
   end
 
+  def history
+
+  end
+
   private
 
   def rental_request_params
