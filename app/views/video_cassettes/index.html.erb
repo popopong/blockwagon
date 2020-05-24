@@ -21,9 +21,11 @@
       <% @pg_search_documents.each do |item| %>
         <%= link_to video_cassette_path(item) do %>
           <div class="card-small mx-2">
-
-            <%= image_tag item.cover_photo, class: "cover-img" %>
-
+            <% if item.cover_photo.blank? %>
+              <%= image_tag "https://images-na.ssl-images-amazon.com/images/I/51lh93vBeRL._AC_SL1461_.jpg", style: "height: 268px; width: 182px" %>
+            <% else %>
+              <%= image_tag item.cover_photo, class: "cover-img" %>
+            <% end %>
             <div class="card-small-info" style="display: block" >
               <h5><strong><%= item.title %></strong></h5>
               <p><%= item.year %></p> <p><%= item.price %>.00$</p>
