@@ -9,6 +9,7 @@ class VideoCassette < ApplicationRecord
   validates :year, presence: true
   validates :description, presence: true, length: { minimum: 10 }
   validates :price, presence: true, numericality: { only_integer: true }
+  validates :cover_photo, url: { allow_blank: true }
 
   include PgSearch::Model
   pg_search_scope :search_by_title,
